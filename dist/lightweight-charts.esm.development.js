@@ -1,6 +1,6 @@
 /*!
  * @license
- * TradingView Lightweight Charts v4.0.0-dev+202307060029
+ * TradingView Lightweight Charts v4.0.0-dev+202308190512
  * Copyright (c) 2022 TradingView, Inc.
  * Licensed under Apache License 2.0 https://www.apache.org/licenses/LICENSE-2.0
  */
@@ -1332,7 +1332,7 @@ class CrosshairTimeAxisView {
         }
         data._internal_width = timeScale._internal_width();
         const value = this._private__valueProvider();
-        if (!value._internal_time) {
+        if (!value._internal_time || !Number.isFinite(value._internal_coordinate)) {
             return;
         }
         data._internal_coordinate = value._internal_coordinate;
@@ -11972,7 +11972,7 @@ function createChart(container, options) {
  * Returns the current version as a string. For example `'3.3.0'`.
  */
 function version() {
-    return "4.0.0-dev+202307060029";
+    return "4.0.0-dev+202308190512";
 }
 
 export { ColorType, CrosshairMode, LastPriceAnimationMode, LineStyle, LineType, MismatchDirection, PriceLineSource, PriceScaleMode, TickMarkType, TrackingModeExitMode, createChart, isBusinessDay, isUTCTimestamp, version };
